@@ -6,6 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
 }
 
 header, footer {
@@ -16,21 +17,27 @@ header, footer {
     padding: 10px 0;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    position: relative; 
+}
+
 footer {
     position: absolute;
     bottom: 0;
 }
 
 nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #fff;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 #new-task {
@@ -68,6 +75,7 @@ nav {
     display: block;
     margin: 0 auto;
     width: fit-content;
+    font-size: 1.2em;
 }
 
 main {
@@ -76,14 +84,16 @@ main {
     padding: 20px;
     width: 50%;
     border-radius: 8px;
-    margin-top: 100px;
+    margin-top: 120px;
     overflow-y: auto;
+    max-height: 70vh;
 }
 
 h3 {
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 1.2em;
+    color: #333;
 }
 
 ul {
@@ -137,5 +147,5 @@ li button:hover {
 
 .highlighted {
     background-color: #20a42e;
+    color: #fff;
 }
-

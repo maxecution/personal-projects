@@ -57,6 +57,7 @@ function createTaskItem(taskText) {
 
     const span = document.createElement('span');
     span.textContent = taskText;
+    span.addEventListener('click', handleItemClick);
 
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
@@ -70,15 +71,19 @@ function createTaskItem(taskText) {
 }
 
 function handleItemClick(event) {
-    if (event.target === event.currentTarget) {
-        const highlightedTask = document.querySelector('.highlighted');
-        if (highlightedTask) {
-            highlightedTask.classList.remove('highlighted');
-        }
-        event.currentTarget.classList.add('highlighted');
-        updateRollTaskLabelWithTask(event.currentTarget);
+    const li = event.currentTarget;
+    const clickedElement = event.target;
 
+    if (clickedElement.tagName === 'BUTTON' && clickedElement.textContent === 'Delete') {
+        return;
     }
+
+    const highlightedTasks = document.querySelectorAll('.highlighted');
+    highlightedTasks.forEach(task => task.classList.remove('highlighted'));
+
+    li.classList.add('highlighted');
+    
+    updateRollTaskLabelWithTask(li);
 }
 
 function updateRollTaskLabelWithTask(taskElement) {
@@ -89,6 +94,7 @@ function updateRollTaskLabelWithTask(taskElement) {
 function deleteTask(event) {
     const li = event.target.parentElement;
     li.remove();
+    updateRollTaskButtonVisibility();
     updateRollTaskLabel();
 }
 
@@ -119,9 +125,9 @@ function updateRollTaskLabel() {
 
     if (!highlightedTask) {
         if (remainingTasks > 0) {
-            rollTaskLabel.textContent = 'Click "Re-roll task" to roll a new task.';
+            rollTaskLabel.textContent = 'Click "Re-roll task" to roll a new task';
         } else {
-            rollTaskLabel.textContent = 'Please add a task.';
+            rollTaskLabel.textContent = 'Please add a task';
         }
     }
 }

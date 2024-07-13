@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>To-Do List</title>
+</head>
+<body>
+    <header>My To-Do List</header>
+    <nav>
+        <div id="new-task">
+            <input type="text" id="task-input" placeholder="Enter a new task" />
+            <button id="add-task">Add Task</button>
+        </div>
+    </nav>
+    <main>
+        <div class="task-container">
+            <div id="random-task">
+                <label id="r-task">Please add a task</label>
+                <button id="roll-task" style="display: none;">Re-roll task</button>
+            </div>
+            <div id="task-list">
+                <h3>Tasks</h3>
+                <ul id="tasks"></ul>
+            </div>
+            <div id="completed-tasks">
+                <h3>Completed Tasks</h3>
+                <ul id="completed"></ul>
+            </div>
+        </div>
+    </main>
+    <footer>Footer Content</footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
